@@ -1,0 +1,12 @@
+a)
+En principio el problema parece sencillo y no muy largo, su dificultad consiste en darse cuenta que se puede modelizar como un problema de coloración de un grafo, como se explicará más adelante.
+
+b)
+Para resolver el problema se construirá un grafo de la siguiente manera:
+-	Se creará un nodo por cada prenda
+-	Se creará un eje entre dos nodos cuando sus respectivas prendas sean incompatibles
+Una vez hecho esto, se procederá a colorear el grafo resultante. Si dos prendas son incompatibles, sus nodos son adyacentes, por lo que no pueden tener el mismo color. Cada color representa un lavado, por lo que, para calcular el tiempo del lavado, se debe encontrar el máximo tiempo dentro de las prendas asignadas a ese lavado.
+
+c)
+
+d)
