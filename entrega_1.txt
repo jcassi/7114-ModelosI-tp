@@ -1,18 +1,26 @@
+Alumno: Cassi, Julián
+Padrón: 96978
+
 - Impresión del problema. Les parece fácil, difícil, largo, corto, cambios en relación a la entrega anterior, lo asocian a otro problema, comentarios, etc.
 En principio el problema no parece tener gran complejidad ni ser muy largo, su dificultad principal consiste en darse cuenta que se puede modelizar como un grafo y que el procedimiento consista, como se explicará más adelante, en encontrar una coloración, un problema muy estudiado.
 
 
-- Ideas de como lo van a intentar resolver
+- Ideas de cómo lo van a intentar resolver
 Para resolver el problema se construirá un grafo de la siguiente manera:
 -- Se creará un nodo por cada prenda
 -- Se creará un eje entre dos nodos cuando sus respectivas prendas sean incompatibles
 Una vez hecho esto, se procederá a colorear el grafo resultante. Si dos prendas son incompatibles, sus nodos son adyacentes, por lo que no pueden tener el mismo color. Cada color representa un lavado, por lo que, para calcular el tiempo total de lavado, se debe encontrar el máximo tiempo dentro de las prendas asignadas a ese lavado.
-El algoritmo utilizado para la coloración es de tipo greedy. Se comienza asignándole un lavado a la primera prenda. Luego, para cada una de las prendas restantes, se le asigna el número de lavado menor no asignado a ninguna de sus prendas incompatibles, o un nuevo lavado si todos los anteriores ya fueron asignados a los nodos adyacentes. Tiene una complejidad de O(V^2+E)
+El algoritmo utilizado para la coloración es de tipo greedy, similar al explicado en (Aldous, 2000, pp. 288). Se comienza asignándole un lavado a la primera prenda. Luego, para cada una de las prendas restantes, se le asigna el número de lavado menor no asignado a ninguna de sus prendas incompatibles, o un nuevo lavado si todos los anteriores ya fueron asignados a los nodos adyacentes. Tiene una complejidad de O(V^2+E)
 
 
 - Comentarios sobre los cambios que hagan en el código a medida que intentan mejorar el resultado. Comentar y explicar los diferentes intentos que van haciendo, incluir pros y contras esperados/encontrados
-La desventaja del modelo de grafos utilizado es que su resolución exacta es un problema NP-C, por lo que tomaría mucho tiempo encontrar la solución cabal cuando el número de prendas e incompatibilidades aumente. El algoritmo greedy utilizado permite encontrar una solución en tiempo polinómico, pero no asegura que el tiempo total de lavado sea realmente el mínimo. Para futuras entregas se puede investigar si existen otros algoritmos de este tipo que puedan llegar a ser más convenientes.
+La desventaja del modelo utilizado es que su resolución exacta es un problema NP-C, por lo que tomaría mucho tiempo encontrar la solución óptima cuando el número de prendas e incompatibilidades aumente. El algoritmo greedy utilizado permite encontrar una solución en tiempo polinómico, pero no asegura que el tiempo total de lavado sea realmente el mínimo. Para futuras entregas se puede investigar si existen otros algoritmos de este tipo que puedan llegar a ser más convenientes.
 Un cambio que se podría implementar en el código, aunque esto no modificaría el resultado, es crear una clase prenda con el tiempo de lavado como atributo. Esto sería más prolijo que tener los tiempos en un vector separado y serviría para futuras entregas en caso de que se le agreguen más características a las prendas.
 
 
 - Comentarios finales de la entrega
+Se logró resolver el problema pedido modelizándolo como un grafo. Se cumplió el objetivo de agruparlos por prendas que pueden lavarse juntas, aunque el resultado psoiblemente no sea el óptimo
+
+
+Referencias
+Aldous, Joan & Wilson, Robin (2000). Graphs and applications, an introductory approach. Springer 
